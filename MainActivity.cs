@@ -56,6 +56,13 @@ namespace MessageSender
                 intent.PutExtra("sms_body", message.Text);
                 StartActivity(intent);
             };
+
+            displayMessage.Click += (s, a) =>
+            {
+                var intent = new Intent(this, typeof(MessageDisplayerActivity));
+                intent.PutExtra("message", message.Text);
+                StartActivity(intent);
+            };
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
